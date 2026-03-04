@@ -1,0 +1,10 @@
+Olá {Nome}, tudo certo? Aqui é da equipe de suporte da [Nome da Sua Empresa]. ✌🏼
+Estamos entrando em contato para confirmar os dados de envio do seu pedido recente. 📦
+
+Gostaríamos de confirmar se o endereço que temos registrado continua o mesmo:
+{Endereco}
+
+Se houve alguma alteração, por favor nos avise para que possamos atualizar o seu cadastro antes de realizar o envio. ✨
+Agradecemos muito pela preferência e pela confiança no nosso trabalho! 💜
+
+Grande abraço!

@@ -1,0 +1,4 @@
+*Logradouro Destinatário,*Número Destinatário,Complemento Destinatário,*CEP Destinatário,*Nome Destinatário,**Celular Destinatário,**CPF/CNPJ Destinatário,* Altura(cm),* Largura(cm),* Comprimento(cm),* Peso KG,*Pedido,* Valor Mercadoria,**Email Destinatário,*Bairro Destinatário,*Cidade Destinatário,*UF Destinatário,,LEGENDA
+Avenida Frei Serafim,1234,Apto 42,64000-000,Mario Bros da Silva,5511999999999,123.456.789-00,10,20,30,1.5,001,150.00,mario@email.com,Centro,Teresina,PI,,
+Rua Meteora,2003,Casa,01000-000,Chrono Trigger Souza,5511888888888,987.654.321-11,10,20,30,1.5,002,150.00,chrono@email.com,Numb,São Paulo,SP,,
+Rua do Atacadão,404,,64000-111,Megaman Oliveira,5511777777777,111.222.333-44,15,15,15,0.5,003,80.00,mega@email.com,Mocambinho,Teresina,PI,,

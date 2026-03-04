@@ -4,25 +4,18 @@ import time
 import pyautogui
 from DataHandler import FormatAddress
 
-def GenerateMessageTemplate(customerName, registeredAddress):
+def GenerateMessageTemplate(baseTemplate, customerName, registeredAddress):
     """
-    Creates the personalized text message using placeholders for privacy.
+    Replaces the placeholders in the base template with actual customer data.
     """
-    messageText = f"""Olá {customerName}, tudo certo? Aqui é o [YOUR NAME], da [YOUR COMPANY]. ✌🏼
-Estamos finalizando as últimas entregas das recompensas físicas do [PROJECT NAME]. Como tivemos alguns atrasos por questões logísticas, estamos agora enviando manualmente pelos Correios. 📦
+    finalMessage = baseTemplate.replace("{Nome}", customerName)
+    finalMessage = finalMessage.replace("{Endereco}", registeredAddress)
+    
+    return finalMessage
 
-Gostaríamos de confirmar se o endereço que temos registrado continua o mesmo:
-{registeredAddress}
-
-Se houve alguma alteração, por favor nos avise para que possamos atualizar antes da próxima remessa, para que possamos nos organizar para enviar suas recompensas físicas em breve. ✨
-Agradecemos muito pela paciência e pelo apoio ao projeto, e pedimos desculpas pela demora! 💜
-
-Grande abraço!"""
-    return messageText
-
-def SendAutomatedMessages(dataFrame):
+def SendAutomatedMessages(dataFrame, baseTemplate):
     """
-    Iterates through the DataFrame and automates the WhatsApp Web interface to send messages.
+    Iterates through the DataFrame and automates the WhatsApp Web interface.
     """
     for index, rowItem in dataFrame.iterrows():
         # Extract and format the customer's first name
@@ -33,9 +26,14 @@ def SendAutomatedMessages(dataFrame):
         rawPhoneNumber = str(rowItem['**Celular Destinatário'])
         phoneNumber = ''.join(filter(str.isdigit, rawPhoneNumber))
 
-        # Prepare the message content
+        # Check if the number length is 10 or 11 (missing country code)
+        # This prevents bugs with DDD 55 (Rio Grande do Sul)
+        if len(phoneNumber) == 10 or len(phoneNumber) == 11:
+            phoneNumber = f"55{phoneNumber}"
+
+        # Prepare the message content dynamically
         registeredAddress = FormatAddress(rowItem)
-        finalMessage = GenerateMessageTemplate(customerName, registeredAddress)
+        finalMessage = GenerateMessageTemplate(baseTemplate, customerName, registeredAddress)
 
         # Encode and create the WhatsApp Web URL
         encodedMessage = urllib.parse.quote(finalMessage)
@@ -44,7 +42,7 @@ def SendAutomatedMessages(dataFrame):
         # Execute the browser automation
         webbrowser.open(whatsappLink)
         
-        # Wait for the page to load (adjust as necessary)
+        # Wait for the page to load
         time.sleep(15)
         
         # Send the message

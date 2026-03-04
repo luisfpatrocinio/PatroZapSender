@@ -28,3 +28,11 @@ def LoadCustomerData(csvFilePath):
     """
     dataFrame = pd.read_csv(csvFilePath)
     return dataFrame
+
+def LoadMessageTemplate(templateFilePath):
+    """
+    Reads the text file containing the message template.
+    """
+    with open(templateFilePath, 'r', encoding='utf-8') as templateFile:
+        templateContent = templateFile.read()
+    return templateContent

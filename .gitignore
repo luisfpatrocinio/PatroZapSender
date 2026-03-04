@@ -7,6 +7,10 @@ venv/
 env/
 .env/
 
-# Ignore real data files, keep only the sample
-data/*.csv
-!data/sample_data.csv
+# Data files protection
+data/contacts.csv
+data/message_template.txt
+
+# Examples files
+!data/contacts_sample.csv
+!data/message_template_sample.txt
