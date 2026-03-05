@@ -26,9 +26,9 @@ This tool is designed so that end-users do not need to modify any Python code. A
 
 1. Clone this repository.
 2. Install the required dependencies:
-   ````bash
-   pip install -r requirements.txt```
-   ````
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Configuration
 
