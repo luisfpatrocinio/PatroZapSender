@@ -1,5 +1,3 @@
-html
-
 <div align="center">
   <img src="assets/icon.png" alt="PatroZapSender Icon" width="200" style="border-radius: 20px;"/>
   <h1>PatroZapSender</h1>
